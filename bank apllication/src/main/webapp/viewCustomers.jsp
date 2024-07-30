@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #cfc1e0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -38,17 +38,20 @@
             border-collapse: collapse;
             margin-bottom: 20px;
             text-align: left;
+            
         }
         th, td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
+            border:1px solid #26094a;
         }
         th {
-            background-color: #4CAF50;
+            background: linear-gradient(#e69e9e, #a05ced);
             color: #fff;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
+            
         }
         .button {
             display: inline-block;
@@ -72,13 +75,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Customer ID</th>
+                    <th>ID</th>
                     <th>Full Name</th>
                     <th>Address</th>
                     <th>Mobile No</th>
                     <th>Email ID</th>
                     <th>Account Type</th>
-                    <th>Initial Balance</th>
+                    <th>ID Proof</th>
                     <th>Date of Birth</th>
                     <th>Account No</th>
                 </tr>
@@ -87,7 +90,7 @@
                 <%
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
                         Statement stmt = con.createStatement();
                         ResultSet rs = stmt.executeQuery("SELECT * FROM Customer");
 
@@ -99,7 +102,7 @@
                             out.println("<td>" + rs.getString("mobile_no") + "</td>");
                             out.println("<td>" + rs.getString("email_id") + "</td>");
                             out.println("<td>" + rs.getString("account_type") + "</td>");
-                            out.println("<td>" + rs.getDouble("initial_balance") + "</td>");
+                            out.println("<td>" + rs.getString("id_proof") + "</td>");  
                             out.println("<td>" + rs.getDate("date_of_birth") + "</td>");
                             out.println("<td>" + rs.getString("account_no") + "</td>");
                             out.println("</tr>");

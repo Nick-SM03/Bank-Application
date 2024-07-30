@@ -23,7 +23,7 @@ public class WithdrawServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
 
             // Retrieve current balance
             PreparedStatement ps = con.prepareStatement("SELECT initial_balance FROM Customer WHERE account_no = ?");

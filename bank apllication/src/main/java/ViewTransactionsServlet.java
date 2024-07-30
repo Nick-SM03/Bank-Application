@@ -18,7 +18,7 @@ public class ViewTransactionsServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession();
-        String accountNo = (String) session.getAttribute("account_no");
+        String accountNo = (String) session.getAttribute("username");
 
         out.println("<!DOCTYPE html>");
         out.println("<html>");
@@ -38,8 +38,8 @@ public class ViewTransactionsServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankingDB", "root", "root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Transactions WHERE id=(SELECT id FROM Customer WHERE account_no=?) ORDER BY transaction_date DESC LIMIT 10");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM Transactions WHERE account_no=? ORDER BY transaction_date DESC LIMIT 10");
             ps.setString(1, accountNo);
             ResultSet rs = ps.executeQuery();
 

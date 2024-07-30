@@ -12,7 +12,12 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         boolean isValidAdmin = validateAdmin(username, password);
@@ -30,7 +35,7 @@ public class AdminLoginServlet extends HttpServlet {
         boolean status = false;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM admins WHERE username=? AND password=?");
             ps.setString(1, username);
             ps.setString(2, password);

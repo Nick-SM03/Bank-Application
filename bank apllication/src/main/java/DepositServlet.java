@@ -13,14 +13,19 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/DepositServlet")
 public class DepositServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String accountNo = request.getParameter("account_no");
         double amount = Double.parseDouble(request.getParameter("amount"));
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
             PreparedStatement ps = con.prepareStatement("UPDATE Customer SET initial_balance = initial_balance + ? WHERE account_no = ?");
             ps.setDouble(1, amount);
             ps.setString(2, accountNo);

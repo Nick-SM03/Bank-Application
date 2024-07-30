@@ -11,7 +11,12 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/RegisterCustomerServlet")
 public class RegisterCustomerServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fullName = request.getParameter("full_name");
         String address = request.getParameter("address");
         String mobileNo = request.getParameter("mobile_no");
@@ -25,7 +30,7 @@ public class RegisterCustomerServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
             PreparedStatement ps = con.prepareStatement("INSERT INTO Customer (full_name, address, mobile_no, email_id, account_type, initial_balance, date_of_birth, id_proof, account_no, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, fullName);
             ps.setString(2, address);

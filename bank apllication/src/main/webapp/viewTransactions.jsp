@@ -84,7 +84,7 @@
                     try {
                         String accountNo = (String) session.getAttribute("account_no");
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankingDB", "root", "root");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
                         PreparedStatement ps = con.prepareStatement("SELECT * FROM Transaction WHERE account_no=? ORDER BY transaction_date DESC LIMIT 10");
                         ps.setString(1, accountNo);
                         ResultSet rs = ps.executeQuery();

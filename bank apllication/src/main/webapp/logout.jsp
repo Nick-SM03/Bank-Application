@@ -50,7 +50,7 @@
             text-align: center;
         }
         .button:hover {
-            background-color: #45a049;
+            background-color: #FF4C4C;
             transform: scale(1.05);
         }
         .button:active {
@@ -66,7 +66,7 @@
         <script>
             setTimeout(function() {
                 window.location.href = 'login.jsp';
-            }, 3000); // Redirects after 3 seconds
+            }, 1000); // Redirects after 1 seconds
         </script>
     </div>
 </body>

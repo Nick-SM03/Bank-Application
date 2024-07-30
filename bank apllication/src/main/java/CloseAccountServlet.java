@@ -11,13 +11,18 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/CloseAccountServlet")
 public class CloseAccountServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String accountNo = (String) session.getAttribute("account_no");
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
             PreparedStatement ps = con.prepareStatement("DELETE FROM Customer WHERE account_no = ?");
             ps.setString(1, accountNo);
             ps.executeUpdate();

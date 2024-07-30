@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
+            background-image:url("https://media.tenor.com/uOB4rCysRN8AAAAi/quickbooks-backing-you.gif");
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -19,7 +20,7 @@
             height: 100vh;
         }
         .container {
-            background-color: white;
+            background: linear-gradient(#edd18e, #aacf70);
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
@@ -41,7 +42,7 @@
             margin: 10px 5px;
             padding: 10px 20px;
             color: white;
-            background-color: #4CAF50;
+            background-color: #ca51e8;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;

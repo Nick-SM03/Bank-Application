@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: "Times New Roman", Times, serif;
+            background: linear-gradient(#e69e9e, #a05ced);
             margin: 0;
             padding: 0;
             display: flex;
@@ -38,7 +38,7 @@
             padding: 10px 20px;
             font-size: 18px;
             text-decoration: none;
-            background-color: #4CAF50; /* Consistent green button color */
+            background-color: #2964E5; /* Consistent green button color */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -48,7 +48,7 @@
             text-align: center;
         }
         .button:hover {
-            background-color: #45a049; /* Slightly darker green on hover */
+            background-color: #6F9AF6;
             transform: scale(1.05);
         }
         .button:active {
@@ -68,8 +68,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">Banking Application</div>
-        
+        <div class="header">Banking Application</div>  
         <div class="button-container">
             <a href="login.jsp" class="button">Admin Login</a>
             <a href="customerLogin.jsp" class="button">Customer Login</a>

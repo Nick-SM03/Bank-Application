@@ -12,7 +12,12 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/CustomerLoginServlet")
 public class CustomerLoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String accountNo = request.getParameter("account_no");
         String password = request.getParameter("password");
         boolean isValidCustomer = validateCustomer(accountNo, password);
@@ -30,8 +35,8 @@ public class CustomerLoginServlet extends HttpServlet {
         boolean status = false;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bankingdb", "root", "root");
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM Customer WHERE account_no=? AND password=?");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankingdb", "root", "root");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM customer WHERE account_no=? AND password=?");
             ps.setString(1, accountNo);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
